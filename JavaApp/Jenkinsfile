@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git 'https://github.com/sohail-shah-quadri-14/jenkinsPractice.git'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                sh 'javac JavaApp/HelloWorld.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                sh 'java -cp JavaApp HelloWorld'
+            }
+        }
+    }
+}
